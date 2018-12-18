@@ -18,7 +18,21 @@ return [0, 1].
 #### Code:
 
 ```
-int* twoSum(int* nums, int numsSize, int target) {
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* twoSum(int* nums, int numsSize, int target) {    
+    for(int i = 0; i < numsSize; i++) {
+        for(int j = i+1; j < numsSize; j++) {
+            if (target == (nums[i] + nums[j])) {
+                int *a = (int *)malloc(2*sizeof(int));
+                a[0] = i;
+                a[1] = j;
+                return a;
+            }
+        }
+    }
     
+    return NULL;
 }
 ```
