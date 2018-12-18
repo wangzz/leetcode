@@ -35,10 +35,9 @@ int palindromeLengthWithStr(char* s, int start, int end) {
 char* longestPalindrome(char* s) {
     int start = 0;
     int end = 0;
-
     int index = 0;
-    int length = strlen(s);
-    while (index < length) {
+    int totalLength = strlen(s);
+    while (index < totalLength) {
         int len1 = palindromeLengthWithStr(s,index,index);
         int len2 = palindromeLengthWithStr(s,index,index+1);
         int len = (len1 > len2) ? len1 : len2;
@@ -51,7 +50,7 @@ char* longestPalindrome(char* s) {
     }
 
     int maxLength = end - start + 1;
-    char *maxSubStr = (char *)malloc((maxLength+1)*sizeof(char));    
+    char* maxSubStr = (char* )malloc((maxLength+1)*sizeof(char));    
     memset(maxSubStr, 0, maxLength+1);
     memcpy(maxSubStr, s+start, maxLength);
 
